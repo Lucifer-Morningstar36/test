@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Terminal Mobile Web App</title>
+    <style>
+        /* CSS code here */
+        body {
+    background-color: black;
+    color: green;
+    font-family: monospace;
+    text-align: center;
+    padding-top: 100px;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.terminal {
+    padding: 20px;
+    border: 1px solid green;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 400px;
+}
+
+.terminal input {
+    background-color: black;
+    color: green;
+    border: none;
+    outline: none;
+    font-family: monospace;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="terminal">
+            <script>
+                // JavaScript code here
+                function enterPassword() {
+    var password = prompt("Enter Password:");
+    if (password === "your_password") {
+        initiateProcess();
+    } else {
+        selfDestruct();
+    }
+}
+
+function initiateProcess() {
+    var confirmation = prompt("This process is irreversible. Do you want to continue? (Yes/No)");
+    if (confirmation.toLowerCase() === "yes") {
+        displayMessage("Process initiated...");
+    } else {
+        selfDestruct();
+    }
+}
+
+function selfDestruct() {
+    displayMessage("Self-destruct initiated...");
+}
+
+function displayMessage(message) {
+    var terminal = document.querySelector(".terminal");
+    var output = document.createElement("div");
+    output.textContent = message;
+    output.style.color = "green";
+    terminal.appendChild(output);
+}
+
+enterPassword();
+
+            </script>
+        </div>
+    </div>
+</body>
+</html>
